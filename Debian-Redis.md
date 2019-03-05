@@ -41,6 +41,8 @@ cp redis.conf /usr/local/redis      # 复制文件
 
 **6. 打开 /usr/local/redis/redis.conf 文件进行编辑**
 ```bash
+vim /usr/local/redis/redis.conf
+
 bind 0.0.0.0            # 搜索此行 bind 127.0.0.1，将其修改为 bind 0.0.0.0 或注释掉，否则将无法外网访问
 requirepass mypass      # 搜索此行，设置 Redis 访问密码
 daemonize yes           # 搜索此行，将其修改为 yes，设置 Redis 可以后台运行
@@ -48,9 +50,12 @@ daemonize yes           # 搜索此行，将其修改为 yes，设置 Redis 可�
 
 **7. 打开 /etc/sysctl.conf 文件进行编辑**
 
-`vm.overcommit_memory=1            # 在文件尾部新增此行，设置数据缓存到磁盘，否则重启服务器时 Redis 缓存数据会丢失`
-
-`sysctl vm.overcommit_memory=1     # 执行命令手动加载该配置，也可以不执行，直接重新服务器`
+```bash
+vm.overcommit_memory=1            # 在文件尾部新增此行，设置数据缓存到磁盘，否则重启服务器时 Redis 缓存数据会丢失
+```
+```bash
+sysctl vm.overcommit_memory=1     # 执行命令手动加载该配置，也可以不执行，直接重新服务器
+```
 
 
 **8. 将 redis-x.x.x/utils 目录下的 redis_init_script 文件复制到 /etc/init.d/**
@@ -60,6 +65,8 @@ cp redis-x.x.x/utils/redis_init_script /etc/init.d/redis    # 复制文件并重
 
 **9. 打开 /etc/init.d/redis 文件并进行编辑**
 ```bash
+vim /etc/init.d/redis
+
 # 找到 CONF="/etc/redis/{REDISPORT}.conf" ，将其修改为 CONF="/usr/local/redis/redis.conf"
 CONF="/usr/local/redis/redis.conf"      
 ```
