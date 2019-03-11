@@ -78,7 +78,8 @@ rabbitmqctl  set_user_tags  User  Tag1  Tag2
 例如： 将queue绑定到某exchange上，需要具有queue的可写权限，以及exchange的可读权限；向exchange发送消息需要具有exchange的可写权限；从queue里取数据需要具有queue的可读权限。详细请参考官方文档中"How permissions work"部分。
 ```
 # 设置用户权限
-rabbitmqctl  set_permissions  -p  VHostPath  User  ConfP  WriteP  ReadP
+#rabbitmqctl  set_permissions  [-p  VHostPath]  User  ConfP  WriteP  ReadP
+rabbitmqctl  set_permissions -p / user_admin '.*' '.*' '.*'
 # 查看(指定hostpath)所有用户的权限信息
 rabbitmqctl  list_permissions  [-p  VHostPath]
 # 查看指定用户的权限信息
