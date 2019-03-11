@@ -79,7 +79,7 @@ rabbitmqctl  set_user_tags  User  Tag1  Tag2
 ```bash
 # 设置用户权限
 #rabbitmqctl  set_permissions  [-p  VHostPath]  User  ConfP  WriteP  ReadP
-rabbitmqctl  set_permissions -p / user_admin '.*' '.*' '.*'
+rabbitmqctl  set_permissions -p '/' User '.*' '.*' '.*'
 # 查看(指定hostpath)所有用户的权限信息
 rabbitmqctl  list_permissions  [-p  VHostPath]
 # 查看指定用户的权限信息
