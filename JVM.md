@@ -318,14 +318,14 @@ Heap                    # 堆
     -XX:+PrintGC||输出形式:<br/>[GC 118250K->113543K(130112K), 0.0094143 secs]<br/>[Full GC 121376K->10414K(130112K), 0.0650971 secs]
     -XX:+PrintGCDetails||输出形式：<br/>Heap<br/> PSYoungGen      total 38400K, used 18660K [0x00000000d5f80000, 0x00000000d8a00000, 0x0000000100000000)<br/>  eden space 33280K, 56% used [0x00000000d5f80000,0x00000000d71b9258,0x00000000d8000000)<br/>  from space 5120K, 0% used [0x00000000d8500000,0x00000000d8500000,0x00000000d8a00000)<br/>  to   space 5120K, 0% used [0x00000000d8000000,0x00000000d8000000,0x00000000d8500000)<br/> ParOldGen       total 87552K, used 0K [0x0000000081e00000, 0x0000000087380000, 0x00000000d5f80000)<br/>  object space 87552K, 0% used [0x0000000081e00000,0x0000000081e00000,0x0000000087380000)<br/> Metaspace       used 6624K, capacity 6722K, committed 6784K, reserved 1056768K<br/>  class space    used 801K, capacity 857K, committed 896K, reserved 1048576K
     -XX:+PrintGCTimeStamps
-    -XX:+PrintGC:PrintGCTimeStamps||可与-XX:+PrintGC -XX:+PrintGCDetails混合使用<br/>输出形式:11.851: [GC 98328K->93620K(130112K), 0.0082960 secs]
-    -XX:+PrintGCApplicationStoppedTime|打印垃圾回收期间程序暂停的时间.可与上面混合使用|输出形式:Total time for which application threads were stopped: 0.0468229 seconds
-    -XX:+PrintGCApplicationConcurrentTime|打印每次垃圾回收前,程序未中断的执行时间.可与上面混合使|输出形式:Application time: 0.5291524 seconds
+    -XX:+PrintGC:PrintGCTimeStamps||可与-XX:+PrintGC -XX:+PrintGCDetails混合使用<br/>输出形式:<br/>11.851: [GC 98328K->93620K(130112K), 0.0082960 secs]
+    -XX:+PrintGCApplicationStoppedTime|打印垃圾回收期间程序暂停的时间.可与上面混合使用|输出形式:<br/>Total time for which application threads were stopped: 0.0468229 seconds
+    -XX:+PrintGCApplicationConcurrentTime|打印每次垃圾回收前,程序未中断的执行时间.可与上面混合使|输出形式:<br/>Application time: 0.5291524 seconds
     -XX:+PrintHeapAtGC|打印GC前后的详细堆栈信息
     -Xloggc:filename|把相关日志信息记录到文件以便分析.与上面几个配合使用
     -XX:+PrintClassHistogram|garbage collects before printing the histogram.
     -XX:+PrintTLAB|查看TLAB空间的使用情况
-    XX:+PrintTenuringDistribution|查看每次minor GC后新的存活周期的阈值| Desired survivor size 1048576 bytes, new threshold 7 (max 15),new threshold 7即标识新的存活周期的阈值为7。
+    XX:+PrintTenuringDistribution|查看每次minor GC后新的存活周期的阈值| Desired survivor size 1048576 bytes,<br/>new threshold 7 (max 15),new threshold 7即标识新的存活周期的阈值为7。
 
 ## 备注
 + Xmx和Xms设置一样大，MaxPermSize和MinPermSize设置一样大，这样可以减轻伸缩堆大小带来的压力；
