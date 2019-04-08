@@ -249,6 +249,7 @@ Heap                    # 堆
 
 ## JVM 相关参数的含义
 + JVM堆内存相关参数的含义
+
     参数名称|含义|默认值|备注
     :---|:---|:---|:---
     -Xms|初始堆大小|物理内存的1/64(<1GB)|默认(MinHeapFreeRatio参数可以调整)空余堆内存小于40%时，JVM就会增大堆直到-Xmx的最大限制.
@@ -275,6 +276,7 @@ Heap                    # 堆
     -XX:+CollectGen0First|FullGC时是否先YGC|false
 
 + 并行收集器相关参数
+
     参数名称|含义|默认值|备注
     :---|:---|:---|:---
     -XX:+UseParallelGC|年轻带使用ps||选择垃圾收集器为并行收集器.此配置仅对年轻代有效.即上述配置下,年轻代使用并发收集,而年老代仍旧使用串行收集.(*java7后配置该项后老年代会采用UseParallelOldGC*)
@@ -287,6 +289,7 @@ Heap                    # 堆
     -XX:+ScavengeBeforeFullGC|Full GC前调用YGC|true|Do young generation GC prior to a full GC. (Introduced in 1.4.1.)
 
 + CMS相关参数
+
     参数名称|含义|默认值|备注
     :---|:---|:---|:---
     -XX:+UseConcMarkSweepGC|使用CMS内存收集||设置该项后，年轻代会自动开启XX：UseParNewGC
@@ -309,6 +312,7 @@ Heap                    # 堆
         >当xmx=128xmn=36 SurvivorRatior=1时CMSInitiatingOccupancyFraction<=((128.0-36)-(36-36/(1+2)))/(128-36)*100=73.913\
         >CMSInitiatingOccupancyFraction低于70%需要调整xmn或SurvivorRatior值。
 + 辅助信息
+
     参数名称|含义|备注
     :---|:---|:---
     -XX:+PrintGC||输出形式:<br/>[GC 118250K->113543K(130112K), 0.0094143 secs]<br/>[Full GC 121376K->10414K(130112K), 0.0650971 secs]
@@ -324,7 +328,7 @@ Heap                    # 堆
     XX:+PrintTenuringDistribution|查看每次minor GC后新的存活周期的阈值| Desired survivor size 1048576 bytes, new threshold 7 (max 15),new threshold 7即标识新的存活周期的阈值为7。
 
 ## 备注
-+ XMX和XMS设置一样大，MaxPermSize和MinPermSize设置一样大，这样可以减轻伸缩堆大小带来的压力；
++ Xmx和Xms设置一样大，MaxPermSize和MinPermSize设置一样大，这样可以减轻伸缩堆大小带来的压力；
 + 对于响应优先的系统：优先使用CMS收集器；对于CMS，可以设置一个小的年轻代（经验值是128M－256M）和大的老年代，这样能保证系统低延迟的吞吐效率。因为年老大用的是并发回收，即使时间长点也不会影响其他程序继续运行，网站不会停顿。
 + 吞吐量优先的应用:一般吞吐量优先的应用都有一个很大的年轻代和一个较小的年老代。原因是,这样可以尽可能回收掉大部分短期对象,减少中期的对象,而年老代尽存放长期存活对象。
 
