@@ -333,11 +333,11 @@ Heap                    # 堆
 + 吞吐量优先的应用:一般吞吐量优先的应用都有一个很大的年轻代和一个较小的年老代。原因是,这样可以尽可能回收掉大部分短期对象,减少中期的对象,而年老代尽存放长期存活对象。
 
 ## 参考
-[赶路人儿       https://blog.csdn.net/liuxiao723846/article/details/72811810](https://blog.csdn.net/liuxiao723846/article/details/72811810)\
-[假装我很酷    https://blog.csdn.net/weixin_30300689/article/details/79888642](https://blog.csdn.net/weixin_30300689/article/details/79888642)\
-[只会一点java https://www.cnblogs.com/dennyzhangdd/p/6770188.html](https://www.cnblogs.com/dennyzhangdd/p/6770188.html)\
-[Lee_Tech   https://blog.csdn.net/lk7688535/article/details/51767460](https://blog.csdn.net/lk7688535/article/details/51767460)\
-[OKevin https://www.cnblogs.com/yulinfeng/p/7163052.html](https://www.cnblogs.com/yulinfeng/p/7163052.html)\
-[SnailClimb在csdn https://blog.csdn.net/qq_34337272/article/details/82177383](https://blog.csdn.net/qq_34337272/article/details/82177383)\
-[aspirant https://www.cnblogs.com/aspirant/p/8662690.html](https://www.cnblogs.com/aspirant/p/8662690.html)\
-[少年天团 http://www.cnblogs.com/1024Community/p/honery.html](http://www.cnblogs.com/1024Community/p/honery.html)
+参考文章：[赶路人儿 https://blog.csdn.net/liuxiao723846/article/details/72811810](https://blog.csdn.net/liuxiao723846/article/details/72811810)\
+参考文章：[假装我很酷    https://blog.csdn.net/weixin_30300689/article/details/79888642](https://blog.csdn.net/weixin_30300689/article/details/79888642)\
+参考文章：[只会一点java https://www.cnblogs.com/dennyzhangdd/p/6770188.html](https://www.cnblogs.com/dennyzhangdd/p/6770188.html)\
+参考文章：[Lee_Tech   https://blog.csdn.net/lk7688535/article/details/51767460](https://blog.csdn.net/lk7688535/article/details/51767460)\
+参考文章：[OKevin https://www.cnblogs.com/yulinfeng/p/7163052.html](https://www.cnblogs.com/yulinfeng/p/7163052.html)\
+参考文章：[SnailClimb在csdn https://blog.csdn.net/qq_34337272/article/details/82177383](https://blog.csdn.net/qq_34337272/article/details/82177383)\
+参考文章：[aspirant https://www.cnblogs.com/aspirant/p/8662690.html](https://www.cnblogs.com/aspirant/p/8662690.html)\
+参考文章：[少年天团 http://www.cnblogs.com/1024Community/p/honery.html](http://www.cnblogs.com/1024Community/p/honery.html)
