@@ -107,9 +107,14 @@ Heap                    # 堆
     + 当前虚拟机的垃圾收集都采用分代收集算法，这种算法没有什么新的思想，只是根据对象存活周期的不同将内存分为几块。一般将java堆分为新生代和老年代，这样我们就可以根据各个年代的特点选择合适的垃圾收集算法。
     + 比如在新生代中，每次收集都会有大量对象死去，所以可以选择复制算法，只需要付出少量对象的复制成本就可以完成每次垃圾收集。而老年代的对象存活几率是比较高的，而且没有额外的空间对它进行分配担保，所以我们必须选择“标记-清楚”或“标记-整理”算法进行垃圾收集。
     + 分代收集算法是目前大部分JVM的垃圾收集器采用的算法。它的核心思想是根据对象存活的生命周期将内存划分为若干个不同的区域。一般情况下将堆区划分为老年代（Tenured Generation）和新生代（Young Generation），在堆区之外还有一个代就是永久代（Permanet Generation）。老年代的特点是每次垃圾收集时只有少量对象需要被回收，而新生代的特点是每次垃圾回收时都有大量的对象需要被回收，那么就可以根据不同代的特点采取最适合的收集算法。
-
++ 增量算法
+    + 增量算法的基本思想是，如果一次性将所有的垃圾进行处理，需要造成系统长时间的停顿，那么就可以让垃圾收集线程和应用程序线程交替执行。每次，垃圾收集线程只收集一小片区域的内存空间，接着切换到应用程序线程。依次反复，直到垃圾收集完成。使用这种方式，由于在垃圾回收过程中，间断性地还执行了应用程序代码，所以能减少系统的停顿时间。但是，因为线程切换和上下文转换的消耗，会使得垃圾回收的总体成本上升，造成系统吞吐量的下降。
 
 ## GC 垃圾收集器
+垃圾回收器负责：
++ 分配内存
++ 保证所有正在被引用的对象还存在于内存中
++ 回收执行代码已经不再引用的对象所占的内存
 
 1. Serial收集器（复制算法)(串行收集器)
     + -XX:+UseSerialGC
@@ -337,10 +342,16 @@ Heap                    # 堆
     -XX:+PrintTLAB|查看TLAB空间的使用情况
     XX:+PrintTenuringDistribution|查看每次minor GC后新的存活周期的阈值| Desired survivor size 1048576 bytes,new threshold 7 (max 15),<br/>new threshold 7即标识新的存活周期的阈值为7。
 
-## 备注
+## 补充
 + Xmx和Xms设置一样大，MaxPermSize和MinPermSize设置一样大，这样可以减轻伸缩堆大小带来的压力；
 + 对于响应优先的系统：优先使用CMS收集器；对于CMS，可以设置一个小的年轻代（经验值是128M－256M）和大的老年代，这样能保证系统低延迟的吞吐效率。因为年老大用的是并发回收，即使时间长点也不会影响其他程序继续运行，网站不会停顿。
 + 吞吐量优先的应用:一般吞吐量优先的应用都有一个很大的年轻代和一个较小的年老代。原因是,这样可以尽可能回收掉大部分短期对象,减少中期的对象,而年老代尽存放长期存活对象。
++ 从系统方面考虑
+    + 尽量采用大堆，但是不要大到需要系统从磁盘上“换”页。一般而言，可用的RAM(没有被系统进程占用的)的80%都应该分配给JVM。
+    + Java堆空间越大，垃圾回收器和java应用在吞吐量（throughput）和延迟执行（latency）方面的效果越好。
++ 从应用方面考虑
+    + 减少对象分配（object allocations）操作，或者采用对象保留（object retention）方式有助于减小存活的数据大小，这也可以反过来帮助垃圾回收做的更好。
+
 
 ## 参考
 参考文章：[赶路人儿 https://blog.csdn.net/liuxiao723846/article/details/72811810](https://blog.csdn.net/liuxiao723846/article/details/72811810)\
@@ -350,4 +361,5 @@ Heap                    # 堆
 参考文章：[OKevin https://www.cnblogs.com/yulinfeng/p/7163052.html](https://www.cnblogs.com/yulinfeng/p/7163052.html)\
 参考文章：[SnailClimb在csdn https://blog.csdn.net/qq_34337272/article/details/82177383](https://blog.csdn.net/qq_34337272/article/details/82177383)\
 参考文章：[aspirant https://www.cnblogs.com/aspirant/p/8662690.html](https://www.cnblogs.com/aspirant/p/8662690.html)\
-参考文章：[少年天团 http://www.cnblogs.com/1024Community/p/honery.html](http://www.cnblogs.com/1024Community/p/honery.html)
+参考文章：[少年天团 http://www.cnblogs.com/1024Community/p/honery.html](http://www.cnblogs.com/1024Community/p/honery.html)\
+参考文章：[ImportNew - 郑雯 http://www.importnew.com/1551.html](http://www.importnew.com/1551.html)
