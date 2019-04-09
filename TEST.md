@@ -66,3 +66,12 @@ function out(){
 ***
 - [x] 复选框
 - [ ] 复选框未选中
+
+----
+github Table:
+    col1:
+        row1,
+        row2
+    col2:
+        row1,
+        row2
