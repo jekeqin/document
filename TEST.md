@@ -69,7 +69,6 @@ function out(){
 
 
 ---
-github Table:
-  col1:  row1,    row2
-  col2:  row1,    row2
+col1:  row1,    row2
+col2:  row1,    row2
 ---
