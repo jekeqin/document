@@ -68,5 +68,3 @@ function out(){
 - [ ] 复选框未选中
 
 
----
-col2:  row1,    row2
