@@ -1,8 +1,3 @@
-# Linux 中后台运行 Jar 包程序
-
-```bash
-vim /etc/init.d/runjar
-
 #!/bin/bash
 # ↑声明Shell命令类型， !/bin/bash = !/bin/sh，两种写法
 # Shell文件名可不带扩展名，即 javacv.sh = javacv
@@ -17,7 +12,7 @@ vim /etc/init.d/runjar
 # ln -s /xxx/xxx/xxx.sh /etc/init.d/xxx
 
 # 定义变量，路径
-JAVACV_PATH="/usr/local/opencv"
+BASE_PATH="/usr/svn"
 
 start(){
     # 先调用执行 stop() 方法
@@ -36,12 +31,12 @@ start(){
     #nohup java -jar /home/vrcut.jar 'jdbc:mysql://127.0.0.1:3306/mydata?characterEncoding=UTF-8' dbuser dbpass args_n > /home/JavaOpenCV.${current_date}.log 2>&1 &
 
     # 运行jar，方式3，参数路径方式，可设置 Jvm 内存
-    nohup java -Xms1024m -Xmx2048m -jar ${JAVACV_PATH}/vrcut.jar > ${JAVACV_PATH}/out.${current_date}.log 2>&1 &
+    nohup svnserve -d -r /usr/svn > ${BASE_PATH}/out.${current_date}.log 2>&1 &
 
     pid     # 调用 pid() 方法
 
     # 控制台输出提示内容
-    echo "javacv service started"
+    echo "svn-server service started"
 }
 
 stop(){
@@ -52,16 +47,16 @@ stop(){
     pid
 
     # 按进程名称搜索进程并kill，再输出
-    echo `kill -9 $(ps -ef|grep vrcut|grep -v grep|awk '{print $2}')`
+    echo `kill -9 $(ps -ef|grep svnserve|grep -v grep|awk '{print $2}')`
 
     # 控制台输出
-    echo $"Stopped javacv service"
+    echo $"Stopped svn-server service"
 }
 
 
 pid(){
     # 按进程名搜索进程，第二个grep为排除ps命令自身
-    echo `ps -ef|grep vrcut|grep -v grep`
+    echo `ps -ef|grep svnserve|grep -v grep`
 }
 
 case "$1" in    # 判断参数1
@@ -83,14 +78,3 @@ case "$1" in    # 判断参数1
     RETVAL=1
 esac
 exit $RETVAL
-```
-
-### 运行、重启、停止
-```
-#/etc/init.d/runjar start|stop|restart|pid
-/etc/init.d/runjar start    # 启动
-/etc/init.d/runjar stop     # 停止
-/etc/init.d/runjar restart  # 重启
-/etc/init.d/runjar pid      # 查询 pid
-
-```
