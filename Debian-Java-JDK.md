@@ -1,8 +1,11 @@
-# Debian 服务器上安装 Maven
+# Debian 服务器上安装 JDK
 
 
 **1. 下载 JDK**
+
 前往官网下载 JDK 安装包，jdk-x.x.x_linux-x64_bin.tar.gz，然后上传至服务器
+
+或使用 wget 命令下载
 
 **2. 配置 JDK 环境变量**
 配置文件尾部追加 Maven 配置
