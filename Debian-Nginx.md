@@ -57,7 +57,7 @@ apt-get install libpcre3 libpcre3-dev openssl libssl-dev libperl-dev
 安装 nginx
 ```
 cd /usr/local/nginx-1.16.0
-./configure
+./configure --with-http_ssl_module
 make
 make install
 ```
