@@ -141,7 +141,26 @@ http{
             proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
             proxy_set_header   X-Forwarded-Proto $scheme;
             proxy_set_header   Referer $http_referer;
+            proxy_pass http://127.0.0.1:8080/;                      # 转发地址
         }
+    }
+}
+```
+### 同时支持 HTTPS(443)、HTTP(80)
+```
+http{
+    ...
+    server{
+        listen 443 ssl;
+        listen 80;                      # 若仅支持443，将80监听去掉即可
+        server_name abc.com;
+        ssl_certificate  cert/abc.pem;
+        ssl_certificate_key  cert/abc.key;
+        ssl_session_timeout 5m;
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        ssl_prefer_server_ciphers on;
+        ...
     }
 }
 ```
