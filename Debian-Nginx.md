@@ -92,6 +92,55 @@ systemctl restart nginx     # 重启
 ```
 
 
+## 日志按天分割
+```
+http{
+    ...
+    
+    map_hash_bucket_size 64;
+    map $time_iso8601 $logdate {
+        '~^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})' '$1-$2-$3';     # $1第一个参数，$2第二个参数,...
+        default 'nodate'; 
+    }
+    access_log logs/access.${logdate}.log main;     # access.2019-07-15.log
+    
+    server{
+        ...
+    }
+}
+```
+
+
+## 安全配置
+### 禁止访问指定后缀文件
+```
+server {
+    listen       *:80;
+    server_name  localhost;
+    charset utf-8;
+    location / {
+            proxy_pass http://127.0.0.1:8080/;
+    }
+    location ~* \.(ini|asp|php|class|war|java)$ {
+        deny all;
+    }
+}
+```
+### 禁止指定IP访问
+```
+http{
+    ...
+    deny 192.168.10.4;
+    deny ...;
+    
+    server{
+        ...
+    }
+}
+```
+
+
+
 ## 参考文章
 信姜缘[ https://cloud.tencent.com/developer/article/1359785](https://cloud.tencent.com/developer/article/1359785)
 
