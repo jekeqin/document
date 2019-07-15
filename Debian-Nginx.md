@@ -91,8 +91,8 @@ systemctl reload nginx      # 重新加载配置
 systemctl restart nginx     # 重启
 ```
 
-
-## 日志按天分割
+## 常用配置
+### 日志按天分割
 ```
 http{
     ...
@@ -107,6 +107,15 @@ http{
     server{
         ...
     }
+}
+```
+### include导入
+```
+http{
+    ...
+    
+    include     vhost/*.conf;       # 指定后缀，推荐指定后缀
+    include     vhost/*;            # 不指定后缀，文件夹、其他非nginx配置文件回报错
 }
 ```
 
