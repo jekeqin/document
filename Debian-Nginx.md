@@ -118,6 +118,33 @@ http{
     include     vhost/*;            # 不指定后缀，文件夹、其他非nginx配置文件回报错
 }
 ```
+### 文件上传大小限制
+```
+http{
+    ...
+    client_max_body_size    100M;   # 文件上传大小限制
+    sendfile                on;     # 高效传输文件模式开启
+    keepalive_timeout       1800;   # 保持连接的时间，默认65s
+}
+```
+### 转发时携带访问地址
+```
+http{
+    ...
+    server{
+        ...
+        location / {
+            proxy_set_header   Host    $host;                       # 源网址，访问网址
+            proxy_set_header   X-Real-IP $server_addr;
+            proxy_set_header   REMOTE-HOST $remote_addr;
+            proxy_set_header   Cookie $http_cookie;                 # cookie
+            proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header   X-Forwarded-Proto $scheme;
+            proxy_set_header   Referer $http_referer;
+        }
+    }
+}
+```
 
 
 ## 安全配置
