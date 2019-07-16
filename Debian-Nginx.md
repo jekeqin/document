@@ -109,6 +109,21 @@ http{
     }
 }
 ```
+### 日志不记录静态文件
+```
+http{
+    ...
+    server{
+        ...
+
+        location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$ {    #匹配文件类型
+            #expires      7d;        #过期时间为7天
+            access_log off;         #不记录该类型文件的访问日志
+        }
+    }
+}
+```
+
 ### include导入
 ```
 http{
@@ -118,6 +133,7 @@ http{
     include     vhost/*;            # 不指定后缀，文件夹、其他非nginx配置文件回报错
 }
 ```
+
 ### 文件上传大小限制
 ```
 http{
@@ -127,6 +143,7 @@ http{
     keepalive_timeout       1800;   # 保持连接的时间，默认65s
 }
 ```
+
 ### 转发时携带访问地址
 ```
 http{
@@ -146,6 +163,7 @@ http{
     }
 }
 ```
+
 ### 同时支持 HTTPS(443)、HTTP(80)
 ```
 http{
