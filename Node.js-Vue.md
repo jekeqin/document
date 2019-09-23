@@ -44,7 +44,7 @@ CMD 命令设置全局模块存放路径<br/>
 ## 2. 安装 cnpm
 
 此步骤可选，因 npm 服务器在国外，访问受网络影响较大，因此更换为 taobao 镜像 cnpm；<br/>
-cnpm 与 npm 完全一致，只是使用时将 npm 换成 cnpm<br/>
+cnpm 与 npm 完全一致，只是使用时将 npm 换成 cnpm，[-g]参数表示全局安装<br/>
 `npm install -g cnpm --registry=https://registry.npm.taobao.org`
 
 
