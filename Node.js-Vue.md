@@ -65,7 +65,7 @@ cnpm 与 npm 完全一致，只是使用时将 npm 换成 cnpm，[-g]参数表�
 安装 Vue<br/>
 `cnpm install vue -g`
 
-安装 Vue命令行工具，即 Vue-cli 脚手架
+安装 Vue命令行工具，即 Vue-cli 脚手架<br/>
 `cnpm install vue-cli -g`
 
 ## 5. 创建项目
@@ -93,12 +93,12 @@ vue init webpack-simple [项目名]    # 项目名称为英文数字组合
 创建好项目之后，进入项目目录，继续运行命令
 ```bash
 cd myweb            # 进入项目目录
-npm install         # 安装工程依赖模块
+cnpm install         # 安装工程依赖模块
 ```
 
-项目运行命令：`npm run dev`
+项目运行命令：`cnpm run dev`
 
-项目打包命令：`npm run bulid`
+项目打包命令：`cnpm run bulid`
 
 打包后的项目文件位于 .\dist 目录下
 
@@ -106,7 +106,7 @@ npm install         # 安装工程依赖模块
 ## 6. 路由 vue-router
 
 1. npm 安装 vue-router，进入项目根目录，执行命令<br/>
-    `npm install vue-router`
+    `cnpm install vue-router`
 
 2. 修改 main.js 引入 VueRouter
 ```js
@@ -151,7 +151,7 @@ https://router.vuejs.org/zh/installation.html
 ## Element
 
 1. npm 安装 ElementUI，进入项目根目录，执行命令<br/>
-    `npm i element-ui -S`
+    `cnpm i element-ui -S`
 
 2. 修改 main.js 引入 ElementUI
 
