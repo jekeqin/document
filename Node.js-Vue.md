@@ -63,10 +63,10 @@ cnpm 与 npm 完全一致，只是使用时将 npm 换成 cnpm，[-g]参数表�
 ## 4. 安装 Vue
 
 安装 Vue<br/>
-`npm install vue -g`
+`cnpm install vue -g`
 
 安装 Vue命令行工具，即 Vue-cli 脚手架
-`npm install vue-cli -g`
+`cnpm install vue-cli -g`
 
 ## 5. 创建项目
 
