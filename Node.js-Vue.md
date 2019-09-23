@@ -99,9 +99,15 @@ cd myweb            # 进入项目目录
 cnpm install         # 安装工程依赖模块
 ```
 
-项目运行命令：`cnpm run dev`
+vue-cli2 项目运行命令：`cnpm run dev`
 
-项目打包命令：`cnpm run bulid`
+vue-cli2 项目打包命令：`cnpm run bulid`
+
+
+vue-cli3 项目运行命令：`cnpm run serve`
+
+vue-cli3 项目打包命令：`cnpm run bulid`
+
 
 打包后的项目文件位于 .\dist 目录下
 
@@ -154,7 +160,7 @@ https://router.vuejs.org/zh/installation.html
 ## Element
 
 1. npm 安装 ElementUI，进入项目根目录，执行命令<br/>
-    `cnpm i element-ui -S`
+    `cnpm i element-ui -S -g`
 
 2. 修改 main.js 引入 ElementUI
 
