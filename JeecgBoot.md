@@ -31,9 +31,10 @@
 
 + com
   + test
-    + JeecgApplication
+    + JeecgApplication.java
     + controller
       + TestController
     + service
       + TestService
     
+StrpingBoot 启动时，会自动扫描主类所在包及所有子包的所有 Class，所以Main启动方法必须放在最上层
