@@ -1,3 +1,4 @@
+# 项目启动
 ## 前端
 
 1.下载代码<br/>
@@ -39,7 +40,7 @@
     
 StrpingBoot 启动时，会自动扫描主类所在包及所有子包的所有 Class，所以Main启动方法必须放在最上层
 
-## 项目地址修改
+# 项目地址修改
 
 ### 前端
 #### 1.src\utils\request.js[line:9]
@@ -57,10 +58,10 @@ const service = axios.create({
 #### 2.public\index.html[line:245]
 ```
 #window._CONFIG['domianURL'] = 'http://127.0.0.1:8080/jeecg-boot';
-window._CONFIG['domianURL'] = 'http://127.0.0.1:8080';
+window._CONFIG['domianURL'] = 'http://127.0.0.1:8080';  // IP 根据实际情况自行修改
 ```
 
-#### 3.vue.config.js
+#### 3.vue.config.js[line:69]
 ```
 #'/jeecg-boot': {
 #  target: 'http://localhost:8080', //请求本地 需要jeecg-boot后台项目
@@ -68,9 +69,30 @@ window._CONFIG['domianURL'] = 'http://127.0.0.1:8080';
 #  changeOrigin: true
 #},
 '/': {
-  target: 'http://localhost:8080',
+  target: 'http://127.0.0.1:8080',  // IP 根据实际情况自行修改
   ws: false,
   changeOrigin: true
 },
 ```
 
+### 后台
+#### application-dev.yml
+```
+#server.servlet.context-path: /jeecg-boot
+server.servlet.context-path: /
+```
+#### application-prod.yml
+```
+#server.servlet.context-path: /jeecg-boot
+server.servlet.context-path: /
+```
+#### application-test.yml
+```
+#server.servlet.context-path: /jeecg-boot
+server.servlet.context-path: /
+```
+#### application.yml
+```
+#server.servlet.context-path: /jeecg-boot
+server.servlet.context-path: /
+```
