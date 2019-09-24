@@ -96,3 +96,12 @@ server.servlet.context-path: /
 #server.servlet.context-path: /jeecg-boot
 server.servlet.context-path: /
 ```
+
+### Redis.DB 切换
+#### org.jeecg.config.RedisConfig
+```
+public RedisTemplate<String, Object> redisTemplate(LettuceConnectionFactory lettuceConnectionFactory) {
+  lettuceConnectionFactory.setDatabase(0);   // 方法前增加 setDatabase，0 即为 db 索引，取值范围 0~15
+  ...
+}
+```
