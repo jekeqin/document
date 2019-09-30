@@ -60,6 +60,12 @@ cnpm 与 npm 完全一致，只是使用时将 npm 换成 cnpm，[-g]参数表�
 
 配置好之后，需要重启 CMD 或Windows PowerShell 窗口
 
+```
+#查看配置
+npm config ls
+
+```
+
 ## 4. 安装 Vue
 
 安装 Vue<br/>
