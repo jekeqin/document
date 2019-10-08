@@ -14,6 +14,11 @@
 >|---Online documentation shortcuts<br/>
 >+---Add to PATH        // 环境变量
 
+环境变量Path，勾选后会自动加入
+```
+Path: %NODE根路径%
+```
+
 安装完成后，nodejs 目录文件如下
 ```bash
 node_modules                # 文件夹
