@@ -69,7 +69,6 @@ cnpm 与 npm 完全一致，只是使用时将 npm 换成 cnpm，[-g]参数表�
 ```
 #查看配置
 npm config ls
-
 ```
 
 ## 4. 安装 Vue
@@ -88,7 +87,7 @@ npm config ls
 进入 Vue 工作区根本目：D:\VueWork
 
 ```bash
-PS C:\Users\admin>cd D:\VueWork     # 切换工作区目录
+C:\Users\admin>cd D:\VueWork     # 切换工作区目录
 ```
 创建项目命令：
 ```bash
