@@ -16,7 +16,8 @@
 
 环境变量Path，勾选后会自动加入
 ```
-Path: %NODE根路径%
+NODE_HOME=D:\Program Files\nodejs
+Path: %NODE_HOME%
 ```
 
 安装完成后，nodejs 目录文件如下
