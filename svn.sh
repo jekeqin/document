@@ -30,8 +30,9 @@ start(){
     # 运行jar，方式2，附带 main.args 参数，多个参数用空格分隔，第一个[>]指定日志路径及文件名称格式，尾部[&]表示后台运行
     #nohup java -jar /home/vrcut.jar 'jdbc:mysql://127.0.0.1:3306/mydata?characterEncoding=UTF-8' dbuser dbpass args_n > /home/JavaOpenCV.${current_date}.log 2>&1 &
 
-    # 运行jar，方式3，参数路径方式，可设置 Jvm 内存
-    nohup svnserve -d -r /usr/svn > ${BASE_PATH}/out.${current_date}.log 2>&1 &
+    # 运行jar，方式3，参数路径方式，可设置 Jvm 内存，[>>]重定向日志路径，[2>&1]将标准错误重定向到标准输出，[ &]后台运行
+    #     [     脚本路径         ]   [          日志输出路径              ]
+    nohup svnserve -d -r /usr/svn >> ${BASE_PATH}/out.${current_date}.log 2>&1 &
 
     pid     # 调用 pid() 方法
 
