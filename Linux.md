@@ -32,7 +32,8 @@ exit  # 退出脚本
 #cat /etc/crontab
 # 用户定时器配置文件，可以使用[crontab -e]命令打开编辑，[crontab -l]查看当前用户定时器
 vim /var/spool/cron/root
-###################
+------------------------
+# 每3分钟执行一次
 */3 * * * * /usr/local/defend.sh >> /usr/local/tomcat.defend.sh 2>&1
 ```
 3、重启系统定时器
