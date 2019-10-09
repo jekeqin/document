@@ -30,7 +30,7 @@ exit  # 退出脚本
 ```
 vim /etc/crontab
 ###################
-*/3 * * * * /usr/local/defend.sh >> /usr/local/tomcat.defend.sh 2>&1
+*/3 * * * * root /usr/local/defend.sh >> /usr/local/tomcat.defend.sh 2>&1
 ```
 3、重启系统定时器
 ```
