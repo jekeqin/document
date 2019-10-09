@@ -34,7 +34,10 @@ vim /etc/crontab
 ```
 3、重启系统定时器
 ```
+# 重启
 /etc/init.d/crond restart
+# 重新加载配置
+/etc/init.d/crond reload
 ```
 
 #### 方法2，内部循环
