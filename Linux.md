@@ -39,6 +39,7 @@ vim /etc/crontab
 # 重新加载配置
 /etc/init.d/crond reload
 ```
+crontab日志：`/var/log/cron`
 
 #### 方法2，内部循环
 1、编写 bash 脚本
