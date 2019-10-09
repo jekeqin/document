@@ -10,11 +10,14 @@
 ```
 #!/bin/sh
 
-# 定义变量
+# 定义变量，存储当前 tomcat 进程ID
 task=`ps -ef|grep tomcat1|grep -v grep|awk '{print $2}'`
 
+# 当前时间
+time=`date "+%Y-%m-%d %H:%m:%S"`
+
 # 输出当前进程ID
-echo 'tomcat task PID' $task
+echo [$time]' tomcat task PID' $task
 
 # 判断进程ID是否为空
 if [ ! $task ]; then
@@ -60,7 +63,9 @@ crontab日志：`/var/log/cron`
 while true; do
     task=`ps -ef|grep tomcat1|grep -v grep|awk '{print $2}'`
 
-    echo 'tomcat task PID' $task
+    time=`date "+%Y-%m-%d %H:%m:%S"`
+
+    echo [$time]' tomcat task PID' $task
 
     if [ ! $task ]; then
         echo 'tomcat stopped'
