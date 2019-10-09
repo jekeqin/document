@@ -35,12 +35,12 @@ java -version                                           # JDK 版本验证
 jdk-1.7.0_80-fcs.x86_64
 ```
 2、删除系统 openjdk
-```
+```bash
 ~:rpm -e —nodeps jdk-1.7.0_80-fcs.x86_64
 ```
 
 3、修改系统默认 jdk 路径
-```
+```bash
 update-alternatives --install "/usr/bin/java" "java" "/usr/local/jdk1.8.0_131/jre/bin/java" 1
 ```
 ```
