@@ -35,7 +35,7 @@ exit  # 退出脚本
 chmod +x /usr/local/defend.sh
 ```
 
-3、编辑系统定时器
+3、编辑系统定时器,https://www.cnblogs.com/ftl1012/p/crontab.html
 ```
 # 系统定时器配置文件，可以查看配置说明
 #cat /etc/crontab
