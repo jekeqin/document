@@ -14,7 +14,8 @@
 task=`ps -ef|grep tomcat1|grep -v grep|awk '{print $2}'`
 
 # 当前时间
-time=`date "+%Y-%m-%d %H:%m:%S"`
+#time=`date "+%Y-%m-%d %H:%m:%S"`
+time=$(date '+%Y-%m-%d %H:%m:%S')
 
 # 输出当前进程ID
 echo [$time]' tomcat task PID' $task
