@@ -24,3 +24,27 @@ source /etc/profile                                     # 手动刷新配置
 
 java -version                                           # JDK 版本验证
 ```
+
+
+### sudo 命令下 SDK 版本与 root 下版本不一致问题
+##### centos
+1、查看系统 openjdk
+```
+#rpm -qa|grep java
+~:rpm -qa|grep jdk
+jdk-1.7.0_80-fcs.x86_64
+```
+2、删除系统 openjdk
+```
+~:rpm -e —nodeps jdk-1.7.0_80-fcs.x86_64
+```
+
+3、修改系统默认 jdk 路径
+```
+update-alternatives --install "/usr/bin/java" "java" "/usr/local/jdk1.8.0_131/jre/bin/java" 1
+```
+usage: alternatives --install <link> <name> <path> <priority>
+<link> 快捷方式路径
+<name> 表示命令链接符号名称
+<path> 引入可替代方案的主要链接
+<priority> 优先级
