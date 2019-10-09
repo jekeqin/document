@@ -44,7 +44,7 @@ jdk-1.7.0_80-fcs.x86_64
 update-alternatives --install "/usr/bin/java" "java" "/usr/local/jdk1.8.0_131/jre/bin/java" 1
 ```
 usage: alternatives --install <link> <name> <path> <priority>
-<link> 快捷方式路径
-<name> 表示命令链接符号名称
-<path> 引入可替代方案的主要链接
-<priority> 优先级
+[link]      快捷方式路径<br/>
+[name]      表示命令链接符号名称<br/>
+[path]      引入可替代方案的主要链接<br/>
+[priority]  优先级
