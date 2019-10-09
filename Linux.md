@@ -7,7 +7,7 @@
 ### Tomcat 进程守护
 #### 方法1，利用系统定时器
 1、编写 bash 脚本
-```
+```bash
 #!/bin/sh
 
 # 定义变量，存储当前 tomcat 进程ID
@@ -30,14 +30,14 @@ fi  # 结束if
 exit  # 退出脚本
 ```
 2、增加 bash 脚本执行权限
-```
+```bash
 # chmod 755 /usr/local/defend.sh
 chmod +x /usr/local/defend.sh
 ```
 
 3、编辑系统定时器,https://www.cnblogs.com/ftl1012/p/crontab.html
 >>①
-```
+```bash
 # 系统定时器配置文件，可以查看配置说明
 vim /etc/crontab
 ------------------------
@@ -54,7 +54,7 @@ vim /var/spool/cron/root
 ```
 
 4、重启系统定时器
-```
+```bash
 # 重启
 /etc/init.d/crond restart
 # 重新加载配置
@@ -64,7 +64,7 @@ crontab日志：`/var/log/cron`
 
 #### 方法2，内部循环
 1、编写 bash 脚本
-```
+```bash
 #!/bin/sh
 
 while true; do
@@ -85,11 +85,11 @@ while true; do
 done
 ```
 2、增加 bash 脚本执行权限
-```
+```bash
 # chmod 755 /usr/local/defend.sh
 chmod +x /usr/local/defend.sh
 ```
 3、控制台启动脚本
-```
+```bash
 nohup /usr/local/defend.sh >> /usr/local/tomcat/tomcat.defend.log 2>&1 &
 ```
