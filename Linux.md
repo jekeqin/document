@@ -36,9 +36,16 @@ chmod +x /usr/local/defend.sh
 ```
 
 3、编辑系统定时器,https://www.cnblogs.com/ftl1012/p/crontab.html
+>>①
 ```
 # 系统定时器配置文件，可以查看配置说明
-#cat /etc/crontab
+vim /etc/crontab
+------------------------
+# 每3分钟执行一次，注意root，使用 root 权限执行
+*/3 * * * * root /usr/local/defend.sh >> /usr/local/tomcat.defend.sh 2>&1
+```
+>>②
+```
 # 用户定时器配置文件，可以使用[crontab -e]命令打开编辑，[crontab -l]查看当前用户定时器
 vim /var/spool/cron/root
 ------------------------
