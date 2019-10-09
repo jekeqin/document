@@ -28,7 +28,10 @@ exit  # 退出脚本
 ```
 2、编辑系统定时器
 ```
-vim /etc/crontab
+# 系统定时器配置文件，可以查看配置说明
+#cat /etc/crontab
+# 用户定时器配置文件，可以使用[crontab -e]命令打开编辑，[crontab -l]查看当前用户定时器
+vim /var/spool/cron/root
 ###################
 */3 * * * * root /usr/local/defend.sh >> /usr/local/tomcat.defend.sh 2>&1
 ```
