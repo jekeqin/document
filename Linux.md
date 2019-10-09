@@ -26,7 +26,13 @@ else
 fi  # 结束if
 exit  # 退出脚本
 ```
-2、编辑系统定时器
+2、增加 bash 脚本执行权限
+```
+# chmod 755 /usr/local/defend.sh
+chmod +x /usr/local/defend.sh
+```
+
+3、编辑系统定时器
 ```
 # 系统定时器配置文件，可以查看配置说明
 #cat /etc/crontab
@@ -36,7 +42,8 @@ vim /var/spool/cron/root
 # 每3分钟执行一次
 */3 * * * * /usr/local/defend.sh >> /usr/local/tomcat.defend.sh 2>&1
 ```
-3、重启系统定时器
+
+4、重启系统定时器
 ```
 # 重启
 /etc/init.d/crond restart
@@ -65,7 +72,12 @@ while true; do
     sleep 60       # 睡眠，单位：秒
 done
 ```
-2、控制台启动脚本
+2、增加 bash 脚本执行权限
+```
+# chmod 755 /usr/local/defend.sh
+chmod +x /usr/local/defend.sh
+```
+3、控制台启动脚本
 ```
 nohup /usr/local/defend.sh >> /usr/local/tomcat/tomcat.defend.log 2>&1 &
 ```
