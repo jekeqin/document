@@ -4,6 +4,12 @@
 /var/log/messages
 ```
 
+### 查看进程关联的文件
+```bash
+ls -lh /proc/进程PID/fd
+# 例：ls -lh /proc/243/fd
+```
+
 ### Tomcat 进程守护
 #### 方法1，利用系统定时器
 1、编写 bash 脚本
