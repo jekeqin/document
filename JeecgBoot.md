@@ -50,7 +50,7 @@ StrpingBoot 启动时，会自动扫描主类所在包及所有子包的所有 C
 #  timeout: 6000 // 请求超时时间
 #})
 const service = axios.create({
-  baseURL: '',
+  baseURL: '/myname',
   timeout: 6000
 })
 ```
@@ -68,10 +68,14 @@ window._CONFIG['domianURL'] = 'http://127.0.0.1:8080';  // IP 根据实际情况
 #  ws: false,
 #  changeOrigin: true
 #},
-'/': {
+'/myname': {
   target: 'http://127.0.0.1:8080',  // IP 根据实际情况自行修改
   ws: false,
-  changeOrigin: true
+  changeOrigin: true,
+  pathRewrite:{
+    "^/myname":"",
+    '^/jeecg-boot': ''
+  }
 },
 ```
 
