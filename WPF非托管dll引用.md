@@ -1,7 +1,7 @@
 # WPF非托管dll引用
 
 ### 引用方式
-```
+```c#
 // exe当前目录
 [DllImport(@".\HZSiInterface.dll")]
 private static extern IntPtr INIT(StringBuilder result);
