@@ -11,7 +11,7 @@ private static extern IntPtr BUSINESS_HANDLE(string data, StringBuilder result);
 ```
 
 ### 参数回传
-```
+```c#
 // 必须定义StringBuilder长度，否则会出现堆栈异常，导致内存读写冲突，程序崩溃
 var result = new StringBuilder(4096);
 var exec = BUSINESS_HANDLE(data, result);
