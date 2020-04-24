@@ -35,6 +35,7 @@ element.Style = style;
 ### 动态修改元素Grid.Column
 ```c#
 Grid.SetColumn(element, 1);
+//Grid.SetRow(element, index);
 ```
 #### 动态修改Grid.Column宽度
 ```c#
