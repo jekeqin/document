@@ -30,3 +30,16 @@ EnableNotify obj = (EnableNotify)this.FindResource("enable");
 ```c#
 element.Style = style;
 ```
+
+
+### 动态修改元素Grid.Column
+```
+Grid.SetColumn(element, 1);
+```
+#### 动态修改Grid.Column宽度
+```c#
+<ColumnDefinition x:Name="col" Width="1*"/>
+```
+```c#
+col.Width = new GridLength(3, GridUnitType.Star);
+```
