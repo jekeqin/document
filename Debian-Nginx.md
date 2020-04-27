@@ -72,7 +72,7 @@ After=network.target
 
 [Service]
 Type=forking
-PIDFile=/usr/local/nginx/conf/nginx.pid
+PIDFile=/usr/local/nginx/logs/nginx.pid
 ExecStartPre=/usr/local/nginx/sbin/nginx -t -q -g 'daemon on; master_process on;'
 ExecStart=/usr/local/nginx/sbin/nginx -g 'daemon on; master_process on;'
 ExecReload=/usr/local/nginx/sbin/nginx -g 'daemon on; master_process on;' -s reload
