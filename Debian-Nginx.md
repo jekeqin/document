@@ -90,6 +90,11 @@ systemctl stop nginx        # 停止
 systemctl reload nginx      # 重新加载配置
 systemctl restart nginx     # 重启
 ```
+### 端口查看
+```
+netstat -ntulp |grep 80   //查看所有80开头的端口使用情况
+netstat -an | grep 80     //查看所有包含80的端口使用情况
+```
 
 ## 常用配置
 ### 日志按天分割
