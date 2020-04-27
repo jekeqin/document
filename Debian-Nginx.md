@@ -73,10 +73,10 @@ After=network.target
 [Service]
 Type=forking
 PIDFile=/usr/local/nginx/conf/nginx.pid
-ExecStartPre=/usr/local/nginx -t -q -g 'daemon on; master_process on;'
-ExecStart=/usr/local/nginx -g 'daemon on; master_process on;'
-ExecReload=/usr/local/nginx -g 'daemon on; master_process on;' -s reload
-ExecStop=/usr/local/nginx -s quit
+ExecStartPre=/usr/local/sbin/nginx -t -q -g 'daemon on; master_process on;'
+ExecStart=/usr/local/sbin/nginx -g 'daemon on; master_process on;'
+ExecReload=/usr/local/sbin/nginx -g 'daemon on; master_process on;' -s reload
+ExecStop=/usr/local/sbin/nginx -s quit
 
 [Install]
 WantedBy=multi-user.target
