@@ -1,3 +1,18 @@
+### Bash命令
+```
+# 查看系统版本（可列出所有版本信息）：
+lsb_release -a
+
+# 查看系统版本（仅列出系统版本）：
+cat /etc/redhat-release
+cat /etc/issue
+
+# 查看内核版本：
+cat /proc/version
+uname -a
+```
+
+
 ### Linux 服务器进程异常关闭日志：
 ```
 # 日志
