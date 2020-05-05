@@ -21,6 +21,18 @@ yum -y upgrade
 yum -y update
 ```
 
+### Bash版本漏洞检测
+```
+env x='() { :;}; echo vulnerable'  bash -c "echo this is a test" 
+# 输出以下内容则不需要修复
+this is a test 
+# 输出以下内容则需要修复
+vulnerable  
+this is a test  
+# 修复命令
+yum -y update bash 
+```
+
 
 ### Linux 服务器进程异常关闭日志：
 ```
