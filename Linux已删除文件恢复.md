@@ -20,7 +20,7 @@ debugfs: ls -d /目标目录
 
 # 5、查看被删文件inode日志
 debugfs: logdump -i <[inode]>
-Inode [inode] is at group [groupid], block **[1441809]**, offset **[128]**
+Inode [inode] is at group [groupid], block [**1441809**], offset [**128**]
 Journal starts at block [3434], transaction [90549]
 FS block [1441809] logged at sequence [90622], journal block [3950]
 
@@ -28,6 +28,6 @@ FS block [1441809] logged at sequence [90622], journal block [3950]
 debugfs: quit
 
 # 7、执行命令找回文件，文件会保存至当前目录
-Linux:~# dd if=/dev/sda1 of=/目标目录/被删文件名称 bs=**[128]** count=1 skip=**[1441809]**
+Linux:~# dd if=/dev/sda1 of=/目标目录/被删文件名称 bs=[**128**] count=1 skip=[**1441809**]
 
 ```
