@@ -10,6 +10,9 @@ cat /etc/issue
 # 查看内核版本：
 cat /proc/version
 uname -a
+
+# 查看端口监听占用
+netstat -tnlp|grep 8080
 ```
 
 ### CentOS系统更新，漏洞修复
