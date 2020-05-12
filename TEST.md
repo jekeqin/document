@@ -67,3 +67,15 @@ function out(){
 - [x] 复选框
 - [ ] 复选框未选中
 
+
+<details>
+  <summary>折叠片段</summary>
+  
+  ```nginx
+  http{
+    ...
+    include tomcat.conf
+  }
+  ```
+</details>
+  ```
