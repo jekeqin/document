@@ -1,6 +1,6 @@
 # Git 相关命令
 
-```bash
+```git
 # 检出分支，通过远程分支创建本地仓库
 git clone xxx.git
 
