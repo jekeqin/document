@@ -74,7 +74,7 @@ npm config ls
 ## 4. 安装 Vue
 
 安装 Vue<br/>
-`cnpm install vue -g`
+`cnpm install -g vue`
 
 安装 Vue命令行工具，即 Vue-cli2 脚手架, 2和3只能同时安装一个<br/>
 `cnpm install -g vue-cli`
