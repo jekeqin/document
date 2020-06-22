@@ -77,10 +77,10 @@ npm config ls
 `cnpm install vue -g`
 
 安装 Vue命令行工具，即 Vue-cli2 脚手架, 2和3只能同时安装一个<br/>
-`cnpm install vue-cli -g`
+`cnpm install -g vue-cli`
 
 安装 Vue命令行工具，即 Vue-cli3 脚手架<br/>
-`cnpm install @vue/cli -g`
+`cnpm install -g @vue/cli`
 
 ## 5. 创建项目
 
