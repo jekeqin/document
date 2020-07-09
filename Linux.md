@@ -15,6 +15,51 @@ uname -a
 netstat -tnlp|grep 8080
 ```
 
+### 防火墙
+#### iptables 防火墙
+```bash
+service iptables status     # 查看防火墙状态
+service iptables stop       # 停止防火墙
+service iptables start      # 启动防火墙
+service iptables restart    # 重启防火墙
+chkconfig iptables off      # 永久关闭防火墙
+chkconfig iptables on       # 永久关闭后重启
+```
+开启80端口
+```
+vim /etc/sysconfig/iptables
+# 加入如下代码
+-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
+
+service iptables restart    # 保存退出后重启防火墙
+```
+#### firewalld 防火墙
+```
+systemctl status firewalld      # 查看firewall服务状态
+    # 出现Active: active (running)切高亮显示则表示是启动状态。
+    # 出现 Active: inactive (dead)灰色表示停止，看单词也行。
+
+firewall-cmd --state            # 查看firewall的状态
+
+service firewalld start         # 开启服务
+service firewalld restart       # 重启服务
+service firewalld stop          # 关闭服务
+
+firewall-cmd --list-all         # 查看防火墙规则
+
+firewall-cmd --query-port=8080/tcp              # 查询端口是否开放
+firewall-cmd --permanent --add-port=80/tcp      # 开放80端口
+firewall-cmd --permanent --remove-port=8080/tcp # 移除端口
+
+firewall-cmd --reload                           #重启防火墙(修改配置后要重启防火墙)
+
+# 参数解释
+#   1、firwall-cmd：是Linux提供的操作firewall的一个工具；
+#   2、--permanent：表示设置为持久；
+#   3、--add-port：标识添加的端口；
+
+
+
 ### CentOS系统更新，漏洞修复
 ```
 # 升级所有包，不改变软件设置和系统设置，系统版本升级，内核不改变
