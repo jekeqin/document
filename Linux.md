@@ -57,7 +57,7 @@ firewall-cmd --reload                           #重启防火墙(修改配置后
 #   1、firwall-cmd：是Linux提供的操作firewall的一个工具；
 #   2、--permanent：表示设置为持久；
 #   3、--add-port：标识添加的端口；
-
+```
 
 
 ### CentOS系统更新，漏洞修复
