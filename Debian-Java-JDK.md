@@ -50,3 +50,18 @@ usage: alternatives --install <link> <name> <path> <priority>
 [path]      引入可替代方案的主要链接
 [priority]  优先级
 ```
+
+### NoClassDefFoundError
+
+##### java.awt.image.BufferedImage
+方式1：
+```
+#catalina.sh 或 .bat
+# -Djava. 相关配置最后加上以下配置
+-Djava.awt.headless=true \
+```
+方式2：
+```
+# 启动时动态增加设置
+System.setProperty("java.awt.headless","true");
+```
