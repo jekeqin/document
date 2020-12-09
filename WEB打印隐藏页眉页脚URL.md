@@ -1,7 +1,7 @@
 # WEB 打印 隐藏页眉页脚 URL 网址
 
 ### 增加以下 style 样式即可
-```css
+```html
 <!--		去除页眉页脚		-->
 <style media="print">
 @page {
